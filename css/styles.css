@@ -1,5 +1,9 @@
+/*import fontawesome emojies*/
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+
 html,body{
-    background-color: #1a1a2e;
+    background-color: #001b31;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -41,6 +45,66 @@ html,body{
     margin-top: 210px;
     margin-left: 180px;
 }
+
+.restaurant-image{
+    width: 150px;
+    height: 150px;
+    margin: 15px;
+    border: solid 3px #df6020;
+}
+
+.restaurant-container{
+
+    position: relative;
+    background-color:#001b31 ;
+    width: 45%;
+    float: left;
+    margin: 15px;
+    box-shadow: 7px 7px rgba(0, 0, 0, 0.75);
+    
+}
+
+.restaurant-title{
+    position: absolute;
+    margin-left: 60%;
+    top: 5%;
+    font-family: Open Sans;
+    color: #df6020;
+    font-size: 15px;
+}
+
+.restaurant-rating{
+position: absolute;
+margin-left: 60%;
+bottom: 15%;
+}
+
+.restaurant-rating { 
+    border: none;
+    float: left;
+}
+  
+.restaurant-rating > input { display: none; } 
+
+.restaurant-rating > label:before { 
+margin: 5px;
+font-size: 1em;
+font-family: FontAwesome;
+display: inline-block;
+content: "\f005";
+}
+  
+.restaurant-rating > .half:before { 
+content: "\f089";
+position: absolute;
+}
+
+.restaurant-rating > label { 
+color: #ddd; 
+float: right; 
+}
+
+
 
 .container #lade-img{
     margin-top: 210px;
@@ -93,37 +157,123 @@ p{
     margin-top: 0px;
 }
 
+#testImageClass{
+    border: solid 12px #dfdfdf;
+}
 
 
-/*
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+.controls{
+    border-radius: 20px 20px 20px 20px;
+    width: 150px;
+    margin-left: 20px;
+    position: fixed;
+    background-color: #0f3460;
+    z-index: 100;
+    padding: 10px;
+    border: solid 2px white;
+}
+
+#buttonBox{
+  background-color: red;
+  width: 300px; height: 200px; position: absolute;
+  margin-left: 80%;
+}
+
+#mapBox{
+  position: relative;
+  margin: 0 auto;
+  height: 200px;
+  width: 100%;
+}
+
+#map {
+  height: 200px;
+  width: 300px;
+ margin-left: 80%;
+}
+
+#mapButton:hover{
+  background-color:#df6020;
+}
 
 fieldset, label { margin: 0; padding: 0; }
+
+#pricing{
+    border: none;
+    float: left;
+    white-space: nowrap;
+}
+
+#pricing > input{display: none;}
+
+#pricing > label:before{
+    margin: 5px;
+    font-size: 1em;
+    font-family: FontAwesome;
+    display: block;
+    content: "\f155"
+
+}
+
+#pricing > label { 
+    color: #ddd; 
+   float: right; 
+}
+
+#pricing > input:checked ~ label,
+#pricing:not(:checked) > label:hover,
+#pricing:not(:checked) > label:hover ~ label {color: #df6020}
+
+#pricing > input:checked + label:hover, /* hover current star when changing rating */
+#pricing > input:checked ~ label:hover,
+#pricing > label:hover ~ input:checked ~ label, /* lighten current selection */
+#pricing > input:checked ~ label:hover ~ label { color: #df6020;  } 
 
 #rating { 
     border: none;
     float: left;
-  }
+}
   
-  #rating > input { display: none; } 
-  #rating > label:before { 
-    margin: 5px;
-    font-size: 2em;
-    font-family: FontAwesome;
-    display: inline-block;
-    content: "\f005";
-  }
+#rating > input { display: none; } 
+
+#rating > label:before { 
+margin: 5px;
+font-size: 1em;
+font-family: FontAwesome;
+display: inline-block;
+content: "\f005";
+}
   
-  #rating > .half:before { 
-    content: "\f089";
-    position: absolute;
-  }
-  
-  #rating > label { 
-    color: #ddd; 
-   float: right; 
-  }
+#rating > .half:before { 
+content: "\f089";
+position: absolute;
+}
+
+#rating > label { 
+color: #ddd; 
+float: right; 
+}
+
+  p{
+    display:inline-block;
+    width: 100%;
+    color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    margin-bottom: 0;
+    margin-top: 0px;
+}
   
   /***** CSS Magic to Highlight Stars on Hover *****/
+  
+  #rating-interactive #rating > input:checked ~ label, /* show gold star when clicked */
+  #rating-interactive #rating:not(:checked) > label:hover, /* hover current star */
+  #rating-interactive #rating:not(:checked) > label:hover ~ label { color: #df6020;  } /* hover previous stars in list */
+  
+  #rating-interactive #rating > input:checked + label:hover, /* hover current star when changing rating */
+  #rating-interactive #rating > input:checked ~ label:hover,
+  #rating-interactive #rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+  #rating-interactive #rating > input:checked ~ label:hover ~ label { color: #e1723b;  } 
 
-
+ 

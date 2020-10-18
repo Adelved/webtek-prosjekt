@@ -25,7 +25,10 @@ function createMap(){
         center:  position,
         zoom: 16,
         disableDefaultUI: true,
-        styles: mapstyle
+        styles: mapstyle,
+        stylers:[
+            {visibility : "off"}
+        ]
     };
 
     map = new google.maps.Map(document.getElementById("map"),options);
@@ -51,10 +54,10 @@ function createMap(){
         parent = document.getElementById('main-page-wrapper')
 
           for (var i = 0; i < results.length; i++) {
-    
             if(results[i].rating >= request.rating & results[i].price_level >= request.price_level){
 
                 if(results[i].photos){
+                    //console.log(results[i])
                     createImage(parent,results[i])
 
                 }
@@ -77,7 +80,6 @@ function createMap(){
 
     if (infoBoxes.length > 0){
         deleteRestaurants()
-        console.log(infoBoxes)
         infoBoxes = []
     }
     
@@ -148,35 +150,93 @@ function createImage(parentDiv,element){
     var name = element.name;
     img.src = element.photos[0].getUrl({maxWidth: 250, maxHeight: 250});
     img.alt = name
+    //add element to class
+    img.classList.add("restaurant-image")
+    
+
+    // create div which will contain a restuarant proposal
+    var subDiv = document.createElement('div')
+    // add element to class
+    subDiv.classList.add('restaurant-container')
+
+    //create titlename header for each restaurant
+    var subDivTitleText = document.createElement('div')
+    //fetch name 
+    subDivTitleText.innerHTML = name;
+    //add element to class
+    subDivTitleText.classList.add('restaurant-title')
+    
+    //fetch the rating element
+    var ratingDiv = document.getElementById('rating')
+    console.log(ratingDiv)
+
+    //clone it
+    //var ratingCloneDiv = ratingDiv.cloneNode(true);
+
+    var ratingCloneDiv = createRatingDiv()
+
 
     
-    img.style.width = "200px"
-    img.style.height = "150px"
-    img.style.margin = "15px"
-    img.style.border = "solid 6px #602080"
-    img.style.borderRadius = "30px"
 
-    var subDiv = document.createElement('div')
-    subDiv.style.position = "relative"
-    subDiv.style.border = "solid 2px #ffffff"
+    var score = roundScoreValue(element.rating)
 
+    colorRating(ratingCloneDiv,score)
+    
 
-    var subDivTitleText = document.createElement('div')
-    subDivTitleText.innerHTML = name;
-    subDivTitleText.style.position = "absolute";
-    subDivTitleText.style.marginLeft = "60%";
-    subDivTitleText.style.top = "5%";
-    subDivTitleText.style.fontFamily = "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"
-    subDivTitleText.style.fontSize = "16px"
-
-    subDiv.style.color = "white"
-    subDiv.style.borderRadius = "30px"
-    subDiv.style.backgroundColor = "#162447"
-    subDiv.style.margin = "10px 20px 10px 20px"
     subDiv.appendChild(img)
     subDiv.appendChild(subDivTitleText)
+    subDiv.appendChild(ratingCloneDiv)
     parentDiv.appendChild(subDiv)
     infoBoxes.push(subDiv)
+
+}
+
+
+//create the 
+function createRatingDiv(){
+    var fieldset = document.createElement('fieldset')
+    fieldset.classList.add('restaurant-rating')
+    for(var i = 0; i < 5; i+=0.5){
+
+        var starValue = 5 - i
+
+        var input = document.createElement('input')
+        input.type = 'radio'
+        input.value = starValue
+        var label = document.createElement('label')
+
+        
+        if(Math.floor(starValue)!==starValue){
+            label.classList.add('half')
+        }else{
+            label.classList.add('full')
+        }
+
+        fieldset.appendChild(input)
+        fieldset.appendChild(label)
+    }
+    return fieldset
+}
+
+
+function roundScoreValue(score){
+    var roundedScore = (Math.round(score * 2) / 2).toFixed(1)
+    return roundedScore
+}
+
+
+function colorRating(ratingDiv,score){
+
+    var ratingTags = ratingDiv.getElementsByTagName('input')
+    
+    for(var i = 0; i < ratingTags.length; i++){
+        if(parseFloat(ratingTags[i].value) <= score){
+            console.log(ratingTags[i])
+            ratingTags[i].nextSibling.style.color = "#df6020"
+        }
+
+
+    }
 
 }
 
