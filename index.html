@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="./css/styles.css">
+    </head>
+    
+    <body>
+
+        <div class="header">
+            <div class="header-buttons">
+                <form action="./index.html">
+                    <button type="submit">Home</button>
+                </form>
+
+                <form action="./find-restaurant.html">
+                    <button style="left: 200px;">Find Restaurant</button>
+                </form>
+
+                <form action="./about.html">
+                    <button style="left: 400px;">About Us</button>
+                </form>
+
+                <form action="./contact.html">
+                    <button type="submit" style="left: 600px">Contact</button>
+                </form>
+            </div>
+        
+        </div>
+        
+        
+
+
+        <div class="container">
+
+  
+            <div id=sentrum-img onclick="window.location='./find-restaurant.html';"  >
+                <img src="./resources/images/sentrum.jfif" alt="sentrum">
+                <div class="titletext">Sentrum</div>
+            </div>
+            
+            <div id="bakklandet-img" onclick="window.location='./find-restaurant.html';">
+                <img src="./resources/images/bakklandet2.jfif" alt="bakklandet2" >
+                <div class="titletext">Bakklandet</div>
+            </div>
+
+            <div id="solsiden-img" onclick="window.location='./find-restaurant.html';">
+                <img src="./resources/images/solsiden.jfif" alt="solsiden" >
+                <div class="titletext">Solsiden</div>
+            </div>
+
+            <div id=ila-img onclick="window.location='./find-restaurant.html';">
+                <img src="./resources/images/ila.jpg" alt="ila">
+                <div class="titletext">Ila</div>
+            </div>
+            <div id=lade-img onclick="window.location='./find-restaurant.html';">
+                <img src="./resources/images/lade.jpg" alt="lade">
+                <div class="titletext">Lade</div>
+            </div>
+        </div>
+        
+
+        <script>
+
+        var position = {
+            lat: 0, 
+            lng: 0
+        };
+
+            document.getElementById('sentrum-img').addEventListener('click',function(){
+                position.lat = 63.429997; 
+                position.lng = 10.393237;
+
+                localStorage.setItem("storedPosition",JSON.stringify(position));
+
+
+            });
+
+            document.getElementById('bakklandet-img').addEventListener('click',function(){
+                position.lat = 63.429399;
+                position.lng = 10.404033;
+
+
+                localStorage.setItem("storedPosition",JSON.stringify(position));
+      
+
+            });
+
+            document.getElementById('solsiden-img').addEventListener('click',function(){
+                position.lat =  63.434366;
+                position.lng = 10.410750;
+
+                localStorage.setItem("storedPosition",JSON.stringify(position));
+
+
+            });
+
+            document.getElementById('ila-img').addEventListener('click',function(){
+                position.lat =  63.431348;
+                position.lng = 10.371356;
+                
+                localStorage.setItem("storedPosition",JSON.stringify(position));
+
+
+            });
+
+            document.getElementById('lade-img').addEventListener('click',function(){
+                position.lat = 63.441463;
+                position.lng =  10.432277;
+                localStorage.setItem("storedPosition",JSON.stringify(position));
+
+
+            });
+
+
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+
+
+
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="./css/styles.css">
+        <link rel="stylesheet" href="./css/restaurant-styles.css">
+        <link rel="stylesheet" href="./css/slider-style.css">
+        
+    </head>
+    
+    <body>
+
+        <div class="header">
+            <div class="header-buttons">
+                <form action="./index.html">
+                    <button type="submit">Home</button>
+                </form>
+
+                <form action="./find-restaurant.html">
+                    <button style="left: 200px;">Find Restaurant</button>
+                </form>
+
+                <form action="./about.html">
+                    <button style="left: 400px;">About Us</button>
+                </form>
+
+                <form action="./contact.html">
+                    <button type="submit" style="left: 600px">Contact</button>
+                </form>
+            </div>
+            
+        </div>
+        
+        
+        <div class = "controls">
+            <p>Distance</p>
+            <input id="radius" type="range" min="50" max="500" value="100">
+
+            <p>Price</p> 
+            <fieldset id="pricing">
+                <input type="radio" id="price4" name="rating" value="4"/><label class = "4price" for="price4" title="Expensive"></label>
+                <input type="radio" id="price3" name="rating" value="3" /><label class="3price" for="price3" title="Pricy"></label>
+                <input type="radio" id="price2" name="rating" value="2" /><label class = "2price" for="price2" title="Affordable"></label>
+                <input type="radio" id="price1" name="rating" value="1" /><label class="1price" for="price1" title="Cheap"></label>
+            </fieldset>
+            
+            <p>Rating</p>
+            
+            <fieldset id="rating">
+                <input type="radio" id="star5" name="rating" value="5"/><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                <input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half" title="OK+ - 3.5 stars"></label>
+                <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="OK - 3 stars"></label>
+                <input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                <input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                <input type="radio" id="starhalf" name="rating" value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+            </fieldset>
+        </div>
+
+        <div id="mapBox">
+            <div id = "buttonBox">
+            </div>
+            <div id="map">
+            </div>
+        </div>
+
+        <div id="main-page-wrapper" style="margin: 0 auto; width: 55%; background-color: #0f3460; padding: 10px; border: solid 3px white;">
+            
+        </div>
+        
+        
+        
+
+
+         
+
+
+
+<script src="./js/mapstyle.js"></script>
+<script src="./js/mapscript.js"></script>
+<script src="./js/closeableMap.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=createMap&key=AIzaSyAzHanLDt4wd7RZgvjC6yM_uL1tobFJnAI"></script>
+
+</body>
+
+
+
+
+</html>
